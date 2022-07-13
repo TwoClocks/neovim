@@ -5,7 +5,7 @@ local keymap = vim.api.nvim_set_keymap
 vim.g.mapleader = ";"
 vim.g.maplocalleader = ";"
 
--- vim.g.listchars='eol:↵,trail:~,tab:>-,nbsp:␣'
+vim.g.listchars='eol:↵,trail:~,tab:>-,nbsp:␣'
 
 -- Wordstar Stuf/
 keymap("", "<c-c>", "<nop>", opts)
@@ -34,7 +34,7 @@ keymap("", "<C-q><C-r>", "<C-Home>", opts)
 keymap("", "<C-k><C-k>", "y", opts)
 keymap("n", "<C-Space>", "P", opts)
 keymap("n", "<leader><space>", "yyP", opts)
-keymap("n", "<leader>cc", ":e ~/.config/nvim/init.vim", opts)
+keymap("n", "<leader>cc", ":e ~/.config/nvim/init.lua", opts)
 keymap("v", "<A-c>", "<C-v>", opts)
 
 
@@ -54,11 +54,16 @@ keymap("t", "<leader>wa", "<C-\\><C-n><C-w><BS>", opts)
 keymap("t", "<leader>wd", "<C-\\><C-n><C-w><C-l>", opts)
 
 
+-- Visual --
+-- Stay in indent mode
+keymap("v", "<", "<gv", opts)
+keymap("v", ">", ">gv", opts)
  --autocmd BufWritePre *.zig lua vim.lsp.buf.formatting_sync()
 
 keymap("n", "<c-q><c-f>", "<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<cr>", opts)
 keymap("", "<C-l>", "<cmd>lua require('telescope.builtin').resume()<cr>", opts)
-keymap("n", "<leader>f", "<cmd>lua require('telescope.builtin').find_files()<cr>", opts)
+keymap("n", "<leader>ff", "<cmd>lua require('telescope.builtin').find_files()<cr>", opts)
+keymap("n", "<leader>fg", "<cmd>lua require('telescope.builtin').live_grep()<cr>", opts)
 keymap("n", "<leader>a", "<cmd>lua require('telescope.builtin').commands()<cr>", opts)
 keymap("n", "<leader>k", ":GitGutterNextHunk<CR>", opts)
 keymap("n", "<leader>j", ":GitGutterPrevHunk<CR>", opts)

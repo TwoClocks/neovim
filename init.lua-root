@@ -1,0 +1,5 @@
+require "neovim.options"
+require "neovim.plugins"
+require "neovim.keymaps"
+require "neovim.cmp"
+-- require "neovim.lsp"
